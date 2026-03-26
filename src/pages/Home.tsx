@@ -1,38 +1,42 @@
 import { ProductCard } from "../components/ProductCard";
-import { type Product } from "../context/CartContext";
-
-const mockProducts: Product[] = [
-  {
-    id: 1,
-    name: "Camisa Preta Básica",
-    price: 59.9,
-    image: "https://via.placeholder.com/300x300",
-  },
-  {
-    id: 2,
-    name: "Camisa Social Branca",
-    price: 129.9,
-    image: "https://via.placeholder.com/300x300",
-  },
-  {
-    id: 3,
-    name: "Camisa Xadrez Flanela",
-    price: 89.9,
-    image: "https://via.placeholder.com/300x300",
-  },
-];
+import { mockProducts } from "../data/products";
 
 export function Home() {
   return (
-    <section>
-      <h2 className="mb-4">Catálogo de Camisas</h2>
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-        {mockProducts.map((product) => (
-          <div className="col" key={product.id}>
-            <ProductCard product={product} />
-          </div>
-        ))}
-      </div>
-    </section>
+    <div className="row">
+      <aside className="col-12 col-md-3 col-lg-2 mb-4">
+        <div className="p-3 bg-light rounded border shadow-sm">
+          <h5>Filtros</h5>
+          <ul className="list-unstyled mb-0">
+            <li className="mb-2">
+              <a href="#" className="text-decoration-none text-secondary">
+                Camisas Lisas
+              </a>
+            </li>
+            <li className="mb-2">
+              <a href="#" className="text-decoration-none text-secondary">
+                Camisas Estampadas
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-decoration-none text-secondary">
+                Promoções
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <main className="col-12 col-md-9 col-lg-10">
+        <h2 className="mb-4">Catálogo de Camisas</h2>
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+          {mockProducts.map((product) => (
+            <div className="col" key={product.id}>
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
   );
 }
