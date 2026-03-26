@@ -17,9 +17,9 @@ export const mockProducts: Product[] = [
   },
   {
     id: 3,
-    name: "Camisa Social Branca",
-    price: 89.9,
+    name: "Camisa Branca Básica",
+    price: 59.9,
     image:
-      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1574180566232-aaad1b5b8450?auto=format&fit=crop&w=600&q=80",
   },
 ];
