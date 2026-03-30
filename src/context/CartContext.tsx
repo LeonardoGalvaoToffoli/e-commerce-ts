@@ -1,11 +1,7 @@
 import { createContext, useState, type ReactNode, useContext } from "react";
+import { type Product } from "../data/products";
 
-export interface Product {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-}
+export type { Product };
 
 export interface CartItem extends Product {
   quantity: number;

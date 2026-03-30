@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useProducts } from "../context/ProductContext";
 
 export function Checkout() {
   const { cart, clearCart } = useCart();
+  const { processPurchase } = useProducts();
   const navigate = useNavigate();
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const handleFinish = (e: React.FormEvent) => {
     e.preventDefault();
+    processPurchase(cart);
     clearCart();
     navigate("/pagamento-finalizado");
   };

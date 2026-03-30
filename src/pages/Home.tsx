@@ -1,7 +1,10 @@
 import { ProductCard } from "../components/ProductCard";
-import { mockProducts } from "../data/products";
+import { useProducts } from "../context/ProductContext";
 
 export function Home() {
+
+  const { products } = useProducts();
+
   return (
     <div className="row">
       <aside className="col-12 col-md-3 col-lg-2 mb-4">
@@ -30,7 +33,7 @@ export function Home() {
       <main className="col-12 col-md-9 col-lg-10">
         <h2 className="mb-4">Catálogo de Camisas</h2>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-          {mockProducts.map((product) => (
+          {products.map((product) => (
             <div className="col" key={product.id}>
               <ProductCard product={product} />
             </div>

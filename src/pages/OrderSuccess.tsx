@@ -19,7 +19,7 @@ export function OrderSuccess() {
       <p className="lead mb-4 text-muted">
         Seu pedido foi processado e em breve sairá para entrega.
       </p>
-      <Link to="/" className="btn btn-primary btn-lg">
+      <Link to="/loja" className="btn btn-primary btn-lg">
         Voltar para a Loja
       </Link>
     </div>

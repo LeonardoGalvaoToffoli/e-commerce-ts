@@ -1,12 +1,16 @@
 import { useParams, Link } from "react-router-dom";
-import { mockProducts } from "../data/products";
 import { useCart } from "../context/CartContext";
+import { useProducts } from "../context/ProductContext"; // Importa o hook
 
 export function ProductDetails() {
   const { id } = useParams<{ id: string }>();
   const { addToCart } = useCart();
 
-  const product = mockProducts.find((p) => p.id === Number(id));
+  // 1. Invoca o hook aqui dentro
+  const { products } = useProducts();
+
+  // 2. Busca o produto dentro da lista que veio do contexto (products)
+  const product = products.find((p) => p.id === Number(id));
 
   if (!product) {
     return (
@@ -42,11 +46,15 @@ export function ProductDetails() {
             Detalhes incríveis sobre a {product.name}. Uma ótima escolha para o
             seu dia a dia, combinando conforto e estilo.
           </p>
+          <p className="text-muted">
+            Estoque disponível: {product.stock}
+          </p>
           <button
             className="btn btn-primary btn-lg mt-3 w-100 shadow-sm"
             onClick={() => addToCart(product)}
+            disabled={product.stock === 0}
           >
-            Adicionar ao Carrinho
+            {product.stock > 0 ? "Adicionar ao Carrinho" : "Sem Estoque"}
           </button>
         </div>
       </div>
