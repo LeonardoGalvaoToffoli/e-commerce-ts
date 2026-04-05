@@ -12,6 +12,9 @@ export function Navbar() {
     navigate("/");
   };
 
+  if (location.pathname === "/" || location.pathname === "/cadastro") {
+      return null;
+
   if (!currentUser) return null;
 
   return (
