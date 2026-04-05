@@ -14,6 +14,7 @@ export function Navbar() {
 
   if (location.pathname === "/" || location.pathname === "/cadastro") {
       return null;
+  }
 
   if (!currentUser) return null;
 
