@@ -1,5 +1,6 @@
 import { createContext, useState, type ReactNode, useContext } from "react";
 import { type Product } from "../data/products";
+import { createContext, useState, useEffect, type ReactNode, useContext } from "react";
 
 export type { Product };
 
